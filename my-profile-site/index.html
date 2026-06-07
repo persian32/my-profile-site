@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정화선 - Product Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, #87CEEB 0%, #B0E0E6 100%);
+            color: #1a1a1a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(ellipse 400px 80px at 20% 30%, rgba(200, 200, 200, 0.4) 0%, transparent 60%),
+                radial-gradient(ellipse 500px 100px at 80% 20%, rgba(180, 180, 180, 0.35) 0%, transparent 55%),
+                radial-gradient(ellipse 350px 90px at 40% 70%, rgba(210, 210, 210, 0.3) 0%, transparent 60%),
+                radial-gradient(ellipse 450px 85px at 70% 80%, rgba(190, 190, 190, 0.35) 0%, transparent 55%);
+            pointer-events: none;
+        }
+
+        .hero-gradient > * {
+            position: relative;
+            z-index: 1;
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .tech-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            background: #f3f3f3;
+            color: #1a1a1a;
+            border: 1px solid #e0e0e0;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #667eea;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-2xl font-bold text-cyan-400">
+                    정화선
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link font-medium text-gray-700">소개</a>
+                    <a href="#skills" class="nav-link font-medium text-gray-700">기술</a>
+                    <a href="#projects" class="nav-link font-medium text-gray-700">프로젝트</a>
+                    <a href="#contact" class="nav-link font-medium text-gray-700">연락처</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-toggle" class="md:hidden flex flex-col space-y-1.5 cursor-pointer">
+                    <span class="w-6 h-0.5 bg-gray-900 transition-all duration-300" id="line1"></span>
+                    <span class="w-6 h-0.5 bg-gray-900 transition-all duration-300" id="line2"></span>
+                    <span class="w-6 h-0.5 bg-gray-900 transition-all duration-300" id="line3"></span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-gray-200">
+                <a href="#about" class="block py-2 px-4 hover:bg-gray-50 rounded font-medium text-gray-700">소개</a>
+                <a href="#skills" class="block py-2 px-4 hover:bg-gray-50 rounded font-medium text-gray-700">기술</a>
+                <a href="#projects" class="block py-2 px-4 hover:bg-gray-50 rounded font-medium text-gray-700">프로젝트</a>
+                <a href="#contact" class="block py-2 px-4 hover:bg-gray-50 rounded font-medium text-gray-700">연락처</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <!-- Profile Image -->
+            <div class="mb-8 flex justify-center">
+                <div class="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden shadow-2xl border-4 border-white/30">
+                    <img src="profile.png" alt="정화선 프로필" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <h1 class="text-5xl sm:text-7xl font-bold mb-6 leading-tight">
+                정화선
+            </h1>
+            <h2 class="text-2xl sm:text-3xl font-light mb-6 opacity-90">
+                Product Developer
+            </h2>
+            <p class="text-lg sm:text-xl opacity-90 max-w-2xl mx-auto leading-relaxed">
+                미국 유학을 준비중인 개발자이자 프로덕트 매니저입니다.<br>
+                사용자 중심의 솔루션을 만드는 것을 좋아합니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-4xl font-bold mb-8 text-center">소개</h3>
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    안녕하세요! 저는 정화선입니다. 개발과 프로덕트 관점을 모두 가진 개발자입니다.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    기술과 사용자 경험을 결합하여 의미있는 프로젝트를 만드는 것에 열정적입니다.
+                    현재 미국 유학을 준비하며 더 넓은 경험을 쌓고 있습니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-4xl font-bold mb-12 text-center">기술 스택</h3>
+            <div class="bg-gradient-to-br from-gray-50 to-white rounded-lg shadow-md p-8">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="tech-badge">HTML</span>
+                    <span class="tech-badge">CSS</span>
+                    <span class="tech-badge">Javascript</span>
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">SQL</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-4xl font-bold mb-12 text-center">프로젝트</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-40 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                        <span class="text-3xl">📚</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2 text-black">영어</h4>
+                        <p class="text-gray-600 mb-4">영어 학습 및 언어 능력 향상을 위한 프로젝트</p>
+                        <button class="text-black font-medium hover:text-gray-600">
+                            더 알아보기 →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-40 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                        <span class="text-3xl">📰</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2 text-black">영자신문</h4>
+                        <p class="text-gray-600 mb-4">영자신문을 통한 뉘앙스 있는 영어 학습</p>
+                        <button class="text-black font-medium hover:text-gray-600">
+                            더 알아보기 →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-40 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                        <span class="text-3xl">▶️</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2 text-black">English Tube</h4>
+                        <p class="text-gray-600 mb-4">유튜브 영상을 활용한 실용 영어 학습</p>
+                        <button class="text-black font-medium hover:text-gray-600">
+                            더 알아보기 →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-4xl font-bold mb-8">연락처</h3>
+            <p class="text-lg text-gray-600 mb-12">
+                제 작업에 관심이 있으신가요? 언제든지 연락주세요!
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-8">
+                <!-- Phone -->
+                <a href="tel:+821035166363" class="inline-flex items-center justify-center px-8 py-4 bg-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-all">
+                    <span class="mr-3">📞</span>
+                    +82-10-3516-6363
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/persian32" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-4 bg-gray-200 text-black rounded-lg font-semibold hover:bg-gray-300 transition-all">
+                    <span class="mr-3">🔗</span>
+                    GitHub
+                </a>
+            </div>
+
+            <div class="text-gray-600">
+                <p>GitHub: <a href="https://github.com/persian32" target="_blank" class="text-purple-600 hover:underline">github.com/persian32</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-gray-400">
+                © 2026 정화선. 모든 권리 보유.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const line1 = document.getElementById('line1');
+        const line2 = document.getElementById('line2');
+        const line3 = document.getElementById('line3');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+
+            // Hamburger animation
+            line1.classList.toggle('rotate-45');
+            line1.classList.toggle('translate-y-2');
+            line2.classList.toggle('opacity-0');
+            line3.classList.toggle('-rotate-45');
+            line3.classList.toggle('-translate-y-2');
+        });
+
+        // Close mobile menu when link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                line1.classList.remove('rotate-45', 'translate-y-2');
+                line2.classList.remove('opacity-0');
+                line3.classList.remove('-rotate-45', '-translate-y-2');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active nav link highlighting on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-cyan-500');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('text-cyan-500');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
